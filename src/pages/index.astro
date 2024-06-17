@@ -1,13 +1,77 @@
 ---
-import Badge from '../components/Badge.astro';
-import Layout from '../layouts/Layout.astro';
+
+import ProjectIcon from "../components/icons/Project.astro"
+import CertificateIcon from "../components/icons/Certificate.astro";
+import TechnologiesIcon from "../components/icons/Technologies.astro";
+import SchoolIcon from "../components/icons/School.astro";
+
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import Education from "../components/Education.astro";
+import Certificates from "../components/Certificates.astro";
+import Technologies from "../components/Technologies.astro";
 
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Hola, me llamo Josué Santos! <Badge>Disponible para trabajar</Badge> </h1>
-		<h2>+2 años de experiencia. Desarrollador Web. De Ecuador, Santa Elena. </h2>
-	</main>
-</Layout>
+<Layout
+  title="Portfolio de Josué - Programador Web con 2 años de experiencia"
+  description="Puedes conocer más sobre mi experiencia, proyectos y sobre mí en general."
+>
+  <main class="px-4">
+    <SectionContainer class="pb-32 pt-4 md:pt-36 md:pb-52 ">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
 
+    <SectionContainer id="educacion">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <SchoolIcon class="size-10" />
+      Educación
+      </h2>
+      <Education />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <ProjectIcon class="size-10" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="certificados">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <CertificateIcon class="size-10" />
+      Certificados
+      </h2>
+      <Certificates />
+    
+      
+    </SectionContainer>
+
+    <SectionContainer id="tecnologias">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <TechnologiesIcon class="size-10" />
+      Tecnologías
+      </h2>
+      <Technologies />
+    </SectionContainer>
+
+
+
+
+  </div>
+  </main>
+</Layout>

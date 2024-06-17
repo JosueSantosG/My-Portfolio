@@ -1,61 +1,77 @@
 ---
+import LinkButton from './LinkButton.astro';
+import GitHub from './icons/GitHub.astro';
+import Link from './icons/Link.astro';
+
 interface Props {
+	Demo: string;
+	icon?: any;
 	title: string;
-	body: string;
-	href: string;
+	descripcion: string;
+	tags: Array<{ name: string, class: string, icon: any }>;
+	link?: string;
+	github?: string;
+
 }
 
-const { href, title, body } = Astro.props;
+const { Demo, title, icon:Icon, descripcion, tags, link, github } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
-</style>
+	<div class="relative flex w-full flex-col rounded-xl bg-[#e3e3e3] dark:bg-[#1f2b3e]  bg-clip-border shadow-md">
+		<div class="relative 
+		mx-4 -mt-6 mb-4
+
+		col-span-6 
+        row-span-5 
+        
+		
+        overflow-clip
+        rounded-xl 
+        md:group-hover:-translate-y-1 md:group-hover:shadow-2xl 
+        lg:border lg:border-gray-800">
+			<video class="w-full h-full object-cover object-left-bottom" src={Demo}             
+            autoplay
+            loop
+            muted
+            playsinline></video>
+		</div>
+		<div class="flex flex-wrap mt-2 mx-4">
+			<h3 class="flex items-center gap-x-3 text-2xl font-bold text-gray-800 dark:text-gray-100">
+				<Icon class="size-8" />
+				{title}
+			</h3>
+			<div class="my-3 text-gray-700 dark:text-gray-300">
+				{descripcion}
+				
+			</div>
+			<ul class="flex flex-row mb-2 gap-x-2">
+			  {tags.map((tag) => (
+				<li>
+				  <span
+					class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+				  >
+					<tag.icon class="size-4" />
+					{tag.name}
+				  </span>
+				</li>
+			  ))}
+			</ul>
+  
+			
+			<footer class="flex items-end justify-start my-4 gap-x-4">
+			  {github && (
+				<LinkButton href={github}>
+				  <GitHub class="size-6" />
+				  Code
+				</LinkButton> 
+			  )}
+			  {link && (
+				<LinkButton href={link}>
+				  <Link class="size-4" />
+				  Preview
+				</LinkButton>
+			  )}
+			</footer>
+		  </div>
+		</div>
+

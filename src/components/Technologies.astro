@@ -1,0 +1,79 @@
+---
+import Tailwind from "./logos/Tailwind.astro"
+import Angular from "./logos/Angular.astro"
+import NodeJS from "./logos/NodeJS.astro"
+import Css from "./logos/Css.astro"
+import Html from "./logos/Html.astro"
+import Ionic from "./logos/Ionic.astro"
+import Mysql from "./logos/Mysql.astro"
+import Python from "./logos/Python.astro"
+import Javascript from "./logos/Javascript.astro"
+import AstroL from "./logos/AstroL.astro"
+
+
+const ORIGIN_TECHNOLOGIES = [
+    { name: 'HTML', image: Html },
+    { name: 'CSS', image: Css },
+    { name: 'JavaScript', image: Javascript },
+    { name: 'Angular', image: Angular },
+    { name: 'Node.js', image: NodeJS },
+    { name: 'MySQL', image: Mysql },
+    { name: 'Python', image: Python },
+    { name: 'Astro', image: AstroL },
+    { name: 'Tailwind CSS', image: Tailwind },
+    { name: 'Ionic', image: Ionic }
+];
+
+const duplicateTechnologies = (arr: any) => {
+    return [...arr, ...arr];
+};
+
+const TECHNOLOGIES = duplicateTechnologies(ORIGIN_TECHNOLOGIES);
+
+---
+
+
+<div class="flex flex-col w-full overflow-hidden">
+    <div class="slider">
+        <div class="slide-track">
+            {
+            TECHNOLOGIES.map(({ name, image: Imagen }) => (
+                <div class="items-center justify-center p-4">
+                    <Imagen src={Imagen} alt={name} class="w-16 h-16" />
+                        <p class="text-center text-sm font-semibold mt-2">{name}</p>
+                </div>
+                    ))
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .slider {
+        height: auto;
+        overflow: hidden;
+    }
+    
+    .slider .slide-track {
+        display: flex;
+        animation: scroll 20s linear infinite;
+        width: calc(100% * 2);
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    </style>
+    
+
+    
+
+
+
