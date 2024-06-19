@@ -1,0 +1,65 @@
+---
+--- 
+
+<body class="bg-gray-100">
+
+<div class="relative overflow-hidden w-full h-64">
+    <div class="flex transition-transform duration-700 ease-in-out" id="carousel-content">
+        <div class="w-full flex-shrink-0">
+            <img src="https://via.placeholder.com/800x400/FF0000/FFFFFF?text=Slide+1" class="w-full h-64 object-cover" alt="Slide 1">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="https://via.placeholder.com/800x400/00FF00/FFFFFF?text=Slide+2" class="w-full h-64 object-cover" alt="Slide 2">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Slide+3" class="w-full h-64 object-cover" alt="Slide 3">
+        </div>
+    </div>
+  
+    <!-- Controles del Carrusel -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 opacity-50 hover:opacity-100 focus:outline-none">
+      Prev
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 opacity-50 hover:opacity-100 focus:outline-none">
+      Next
+    </button>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const carouselContent = document.getElementById('carousel-content') as HTMLElement | null;
+    const totalSlides = carouselContent?.children.length ?? 0;
+    
+    const nextButton = document.getElementById('next') as HTMLButtonElement | null;
+    const prevButton = document.getElementById('prev') as HTMLButtonElement | null;
+
+    if (nextButton && prevButton && carouselContent) {
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1;
+            }
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carouselContent!.style.transform = `translateX(${offset}%)`;
+        }
+    } else {
+        console.error('Elementos del carrusel no encontrados.');
+    }
+</script>
+
+</body>
+
