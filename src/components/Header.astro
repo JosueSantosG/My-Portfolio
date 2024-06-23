@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle.astro"
 
 const navItems = [
   {
-    title: "Educacion",
+    title: "Educación",
     label: "educacion",
     url: "/#educacion",
   },
@@ -26,15 +26,18 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 flex flex-wrap items-center justify-center w-full mx-auto mt-2 "
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    class="flex flex-wrap px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
   >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+          class="relative block px-2 py-2 transition rounded-full 
+          dark:hover:text-white dark:hover:bg-gray-800 dark:text-white
+          hover:text-white hover:bg-gray-800 text-black 
+          "
           aria-label={link.label}
           href={link.url}
         >
@@ -56,9 +59,12 @@ const navItems = [
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
+              item.classList.add("bg-gray-800")
+              item.classList.add("text-white")
+
             } else {
-              item.classList.remove("text-yellow-500")
+              item.classList.remove("bg-gray-800")
+              item.classList.remove("text-white")
             }
           })
         }
