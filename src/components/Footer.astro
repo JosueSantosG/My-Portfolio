@@ -2,24 +2,24 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="opacity-80 m-4 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center">
-  <div class="rounded-lg w-full max-w-screen-xl md:mx-auto md:flex md:items-center md:justify-between m-4">
-    
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">
-      © {currentYear} Hecho por Josué Santos e inspirado por 
-      <a href="https://github.com/midudev" target="_blank" class="hover:underline">Midudev</a> ^^ | Derechos reservados.
-    </span>
-    
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0 md:ml-4">
-      <li>
-        •  <a id="contacto" href="mailto:josueesg08@gmail.com" class="hover:underline">Contacto</a>
-      </li>
-    </ul>
-    
-    <div class="flex items-center justify-center mt-3 md:mt-0 md:ml-4">
-      <img class="h-14 w-14" src="/assets/js1.png" alt="JavaScript logo">
+<footer class="opacity-80 m-4 mt-32 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-8">
+  <div class="flex items-center md:flex-row flex-col justify-between">
+    <div class="flex-1" >
+      <p class="text-center text-zinc-900/90 dark:text-zinc-100/90">
+        ✧ Hecho por Josué e inspirado por  
+        <a href="https://github.com/midudev" target="_blank" class="hover:underline">Midudev</a> ^^
+        <br>
+        <br>
+        © {currentYear} Derechos reservados.
+      </p>
     </div>
-    
+    <div class="cursor-pointer hover:underline">
+      
+      <a id="contacto" href="mailto:josueesg08@gmail.com" class=" font-medium flex flex-col items-center justify-center  text-zinc-800/90 dark:text-zinc-100/90">
+        <img class="h-14 w-14" src="/assets/js1.png" alt="JS">
+        Contacto
+      </a>
+    </div>
   </div>
 </footer>
 
