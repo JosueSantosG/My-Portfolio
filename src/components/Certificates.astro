@@ -1,14 +1,53 @@
 ---
 import Carousel from "./Carousel.astro";
-
+import Left from "./icons/Left.astro";
+import Right from "./icons/Right.astro";
 
 ---
 
-
-
 <div class="w-full h-full flex items-center justify-center my-8 p-4">
-
-    <Carousel>
-    </Carousel>
-
+    <section class=" grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
+        <a href="#C1" class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]">
+            <img src="/certificates/C1.webp" alt="Certificado 1" class="w-full h-60 object-cover rounded-lg" />
+        </a>
+        <a href="#C2" class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]" >
+            <img src="/certificates/C2.webp" alt="Certificado 2" class="w-full h-60 object-cover rounded-lg" />
+        </a>
+        
+    </section>
 </div>
+    <article class="light-box flex justify-center items-center fixed top-0 left-0 w-full h-[100vh] bg-black bg-opacity-80 z-20 transition-transform duration-500 ease-out" id="C1">
+        <a href="#certificados" class="absolute top-0 right-0 m-4 text-white text-6xl rounded-full bg-gray-800 opacity-50 hover:opacity-100 focus:outline-none px-4 py-1">&times;</a>
+        <a href="#C2" class="absolute rounded-full left-0 top-1/2 transform -translate-y-1/2 
+        bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none
+        md:px-4 md:py-4 md:mx-2
+        "><Left /></a>
+        <div class="m-2">
+            <img src="/certificates/C1.webp" alt="Certificado 1" class="w-[125vh] max-h-[90vh]"/>
+        </div>
+        <a href="#C2" class="absolute rounded-full right-0 top-1/2 transform -translate-y-1/2 
+        bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none
+        md:px-4 md:py-4 md:mx-2
+        "><Right /></a>
+        
+    </article>
+
+    <article class="light-box flex justify-center items-center fixed top-0 left-0 w-full h-[100vh] bg-black bg-opacity-80 z-20 transition-transform duration-500 ease-out" id="C2">
+        <a href="#certificados" class="absolute top-0 right-0 m-4 text-white text-6xl rounded-full bg-gray-800 opacity-50 hover:opacity-100 focus:outline-none px-4 py-1">&times;</a>
+        <a href="#C1" class="absolute rounded-full left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-2 mx-4 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4"><Left /></a>
+        <img src="/certificates/C2.webp" alt="Certificado 2" class="w-[125vh] max-h-[90vh]"/>
+        <a href="#C1" class="absolute rounded-full right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-2 mx-4 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4"><Right  /></a>
+    </article>
+
+<style>
+
+    .light-box {
+        transform: scale(0);
+    }
+
+
+    .light-box:target{
+        transform: scale(1);
+    }
+</style>
+
