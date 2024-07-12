@@ -1,22 +1,27 @@
 ---
+import MyLogo from "./icons/MyLogo.astro"
+
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="opacity-80 m-4 mt-32 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-8">
+<footer class="opacity-80 m-4 mt-40 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-8">
   <div class="flex items-center md:flex-row flex-col justify-between">
+    <div class="cursor-pointer hover:underline hover:scale-105">
+      <a href="https://github.com/JosueSantosG/My-Portfolio" target="_blank" class="flex flex-col items-center justify-center">
+        <MyLogo class="w-40 h-40" />
+      </a>
+    </div>
     <div class="flex-1" >
       <p class="text-center text-zinc-900/90 dark:text-zinc-100/90">
         ✧ Hecho por Josué e inspirado por  
         <a href="https://github.com/midudev" target="_blank" class="hover:underline">Midudev</a> ^^
-        <br>
-        <br>
-        © {currentYear} Derechos reservados.
+        <div class="m-2 text-center text-zinc-900/90 dark:text-zinc-100/90" >
+          © {currentYear} Derechos reservados.
+        </div>
       </p>
     </div>
-    <div class="cursor-pointer hover:underline hover:scale-105">
-      
+    <div class="cursor-pointer hover:underline hover:scale-105 my-5 lg:mt-0">
       <a id="contacto" href="mailto:josueesg08@gmail.com" class=" font-medium flex flex-col items-center justify-center  text-zinc-800/90 dark:text-zinc-100/90">
-        <img class="h-14 w-14" src="/assets/js1.png" alt="JS">
         Contacto
       </a>
     </div>
