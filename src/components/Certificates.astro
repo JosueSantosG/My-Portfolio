@@ -47,7 +47,7 @@ const getArrayValues = (array: string | any[], index: number) => {
                 <a href="#certificados" class="absolute top-0 right-0 m-4 text-white text-6xl rounded-full bg-gray-800 opacity-50 hover:opacity-100 focus:outline-none px-4 py-1">&times;</a>
                 <a href={prev.href} class="absolute rounded-full left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Left /></a>
                 <div class="m-2">
-                    <img src={src} alt={alt} class="w-[125vh] max-h-[90vh]"/>
+                    <img src={src} alt={alt} class="w-[125vh] max-h-[90vh]" loading="lazy"/>
                 </div>
                 <a href={next.href} class="absolute rounded-full right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Right /></a>
             </article>
