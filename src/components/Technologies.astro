@@ -9,11 +9,15 @@ import Mysql from "./logos/Mysql.astro";
 import Python from "./logos/Python.astro";
 import Javascript from "./logos/Javascript.astro";
 import AstroL from "./logos/AstroL.astro";
+import TypeScript from "./logos/TypeScript.astro";
+import NodeRed from "./logos/NodeRed.astro";
+
 
 const ORIGIN_TECHNOLOGIES = [
   { name: "HTML", image: Html },
   { name: "CSS", image: Css },
   { name: "JavaScript", image: Javascript },
+  { name: "TypeScript", image: TypeScript },
   { name: "Angular", image: Angular },
   { name: "Node.js", image: NodeJS },
   { name: "MySQL", image: Mysql },
@@ -21,6 +25,7 @@ const ORIGIN_TECHNOLOGIES = [
   { name: "Astro", image: AstroL },
   { name: "Tailwind CSS", image: Tailwind },
   { name: "Ionic", image: Ionic },
+  {name: "NodeRed", image: NodeRed},
 ];
 
 const duplicateTechnologies = (arr: any) => {
@@ -61,7 +66,7 @@ const TECHNOLOGIES = duplicateTechnologies(ORIGIN_TECHNOLOGIES);
     display: flex;
     animation: scroll 25s linear infinite;
     -webkit-animation: scroll 25s linear infinite;
-    width: calc(200px * 20); /* Número total de slides (el doble) */
+    width: calc(200px * 24); /* Número total de slides (el doble) */
   }
 
   .slider .slide {
@@ -78,8 +83,8 @@ const TECHNOLOGIES = duplicateTechnologies(ORIGIN_TECHNOLOGIES);
       transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(calc(-180px * 10)); /* Número real de slides */
-      transform: translateX(calc(-180px * 10));
+      -webkit-transform: translateX(calc(-180px * 12)); /* Número real de slides */
+      transform: translateX(calc(-180px * 12));
     }
   }
   .fading-edges {
