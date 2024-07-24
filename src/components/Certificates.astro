@@ -1,30 +1,42 @@
 ---
-import Carousel from "./Carousel.astro";
 import Left from "./icons/Left.astro";
 import Right from "./icons/Right.astro";
 
 const CERTIFICATES = [
     {
-        src: "/certificates/C1.webp",
-        alt: "Certificado 1",
-        href: "#C1",
-        id: "C1",
+        src: "/certificates/AdvancedStyling.webp", alt: "Certificado 1",
+        href: "#C1", id: "C1",
     },
     {
-        src: "/certificates/C2.webp",
-        alt: "Certificado 2",
-        href: "#C2",
-        id: "C2",
+        src: "/certificates/InteractivityJS.webp", alt: "Certificado 2",
+        href: "#C2", id: "C2",
     },
     {
-        src: "/certificates/C3.webp",
-        alt: "Certificado 3",
-        href: "#C3",
-        id: "C3",
+        src: "/certificates/IntrodGit.webp", alt: "Certificado 3",
+        href: "#C3", id: "C3",
+    },
+    {
+        src: "/certificates/IntrodSegCiber.webp", alt: "Certificado 4",
+        href: "#C4", id: "C4",
+    },
+    {
+        src: "/certificates/IntroduccionPOO.webp", alt: "Certificado 5",
+        href: "#C5", id: "C5",
+    },
+    {
+        src: "/certificates/IntroductionCSS3.webp", alt: "Certificado 6",
+        href: "#C6", id: "C6",
+    },
+    {
+        src: "/certificates/IntroductionHTML5.webp", alt: "Certificado 7",
+        href: "#C7", id: "C7",
+    },
+    {
+        src: "/certificates/IOTNodeRED.webp", alt: "Certificado 8",
+        href: "#C8", id: "C8",
     },
     
     
-
 ];
 
 const getArrayValues = (array: string | any[], index: number) => {
@@ -34,29 +46,16 @@ const getArrayValues = (array: string | any[], index: number) => {
 };
 
 ---
-<!-- <Carousel></Carousel> -->
 
 <div class="flex items-center justify-center my-8 p-4">
-    <article class="flex flex-col sm:grid sm:grid-cols-3 w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
+    <article class="grid grid-cols-2 sm:grid sm:grid-cols-3 lg:grid lg:grid-cols-4 w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
         {CERTIFICATES.map(({ src, alt, href }) => (
             <a href={href} class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]">
-                <img src={src} alt={alt} width="200" height="200" class="w-full h-52 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[200px] " />
+                <img src={src} alt={alt} width="200" height="200" class="w-full h-36 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[135px] " />
             </a>
         ))}
         
     </article>
-
- <!--    <article class=" grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
-        {CERTIFICATES.map(({ src, alt, href }, index, array) => (
-            <a 
-                href={href} 
-                class={`w-full lg:w-auto hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02] ${index === array.length - 1 && array.length % 2 === 1 ? 'col-span-full justify-self-center' : ''}`}
-            >
-                <img src={src} alt={alt} class="w-full h-60 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg" />
-                <img src={src} alt={alt} width="200" height="200" class="object-cover w-64 h-full lg:w-[400px] lg:h-[300px] aspect-square" />
-            </a>
-        ))}
-    </article> -->
 </div>
     
 
