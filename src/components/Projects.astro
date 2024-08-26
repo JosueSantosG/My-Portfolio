@@ -6,19 +6,34 @@ import Bootstrap from "./logos/Bootstrap.astro";
 
 import DropIcon from "./icons/Drop.astro";
 import RobotIcon from "./icons/Robot.astro";
+import BubbleChat from "./icons/BubbleChat.astro";
 
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
+import SocketIO from "./logos/SocketIO.astro";
 
 const TAGS = {
   ANGULAR: { name: "Angular", class: "bg-[#914646] text-white", icon: Angular },
   BOOTSTRAP: { name: "Bootstrap", class: "bg-[#664794] text-white", icon: Bootstrap },
   NODEJS: { name: "Node.js", class: "bg-[#024302] text-white", icon: NodeJS },
-  TAILWIND: { name: "Tailwind CSS", class: "bg-[#38B2AC] text-white", icon: Tailwind },
+  TAILWIND: { name: "Tailwind CSS", class: "bg-[#172a5de3] text-white", icon: Tailwind },
+  SOCKETIO: { name: "Socket.IO", class: "bg-[#1f1f1f] text-white", icon: SocketIO },
 };
 const PROJECTS = [
   /* Proyecto 1 */
+  {
+    icon: BubbleChat,
+    title: "Soporte en Línea",
+    description:
+      "Aplicación de un chat en tiempo real que permite la interacción entre clientes y asesores mediante Socket.IO. Incluye un sistema de salas privadas, persistencia de mensajes, y notificaciones cuando un asesor se une al chat. La interfaz del asesor permite gestionar el listado de clientes y sus conversaciones.",
+    link: "https://chat-soporte.vercel.app/",
+    github: "https://github.com/JosueSantosG/support-chat",
+    image: "/projects/chat-soporte.webp",
+    tags: [TAGS.ANGULAR, TAGS.NODEJS, TAGS.TAILWIND, TAGS.SOCKETIO],
+  },
+  /* Proyecto 2 */
+
   {
     icon: RobotIcon,
     title: "PostgradIA",
@@ -29,80 +44,87 @@ const PROJECTS = [
     image: "/projects/videoAV.mp4",
     tags: [TAGS.ANGULAR, TAGS.NODEJS, TAGS.BOOTSTRAP],
   },
-
-  /* Proyecto 2 */
+  /* Proyecto 3 */
   {
     icon: DropIcon,
     title: "JaapMan",
     description:
       "Aplicación web para la gestión de pagos de la Junta de Agua Potable de la Parroquia Manglaralto. Este sistema incluye un inicio de sesión basado en roles, recuperación y cambio de contraseñas, inventario para instalaciones, toma de lecturas mensuales, generación de informes, entre otras funcionalidades.",
-    github: "https://github.com/NICKALVA1302/jaapman-front",
     image: "/projects/JaapMan.mp4",
     tags: [TAGS.ANGULAR, TAGS.NODEJS, TAGS.BOOTSTRAP],
   },
+  
 ];
+// Función para verificar si es una imagen o un video
+function isImage(file: string) {
+  return file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png') || file.endsWith('.webp');
+}
 ---
 
 <div class="flex flex-col gap-y-14 md:gap-y-10">
   {
-    PROJECTS.map(({ icon:Icon, image, title, description, tags, link, github }) => (
-    <article class="flex flex-col items-center space-x-0 space-y-5 group md:flex-row md:space-x-0 md:space-y-0
-    md:border-y-4 md:border-x-0 bg-[#d5ecd96d] dark:bg-[#4E67516D] bg-clip-border shadow-md border-black/20 dark:border-white/20 rounded-xl
-    py-4 border-x-4 
-    ">
-  <div class="w-full md:w-1/2">
-    <div class="relative mx-4 md:-ml-6 md:mt-auto -mt-10 mb-2 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <video
-			class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-			src={image}
-			autoplay
-			loop
-			muted
-			playsinline></video>
-      
-    </div>
-  </div>
+    PROJECTS.map(({ icon: Icon, image, title, description, tags, link, github }) => (
+      <article class="flex flex-col items-center space-x-0 space-y-5 group md:flex-row md:space-x-0 md:space-y-0
+      md:border-y-4 md:border-x-0 bg-[#d5ecd96d] dark:bg-[#4E67516D] bg-clip-border shadow-md border-black/20 dark:border-white/20 rounded-xl
+      py-4 border-x-4 
+      ">
+        <div class="w-full md:w-1/2">
+          <div class="relative mx-4 md:-ml-6 md:mt-auto -mt-10 mb-2 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            {isImage(image) ? (
+              <img
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                src={image}
+                alt={title}
+              />
+            ) : (
+              <video
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                src={image}
+                autoplay
+                loop
+                muted
+                playsinline
+              ></video>
+            )}
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg px-5">
-    <h3 class="flex items-center gap-x-3 text-2xl font-bold text-gray-800 dark:text-gray-100">
-			<Icon class="size-8" />
-			{title}
-		</h3>
-    <div class="flex flex-wrap mt-2">
-      
-      <div class="my-2 text-gray-700 dark:text-gray-300">
-        {description}
-        <ul class="flex flex-row mt-5 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+        <div class="w-full md:w-1/2 md:max-w-lg px-5">
+          <h3 class="flex items-center gap-x-3 text-2xl font-bold text-gray-800 dark:text-gray-100">
+            <Icon class="size-8" />
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <div class="my-2 text-gray-700 dark:text-gray-300">
+              {description}
+              <ul class="flex flex-wrap mt-5 gap-2">
+                {tags.map((tag) => (
+                  <li>
+                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}>
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <footer class="flex flex-wrap items-end justify-start mt-4 gap-y-2 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
     ))
   }
 </div>

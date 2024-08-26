@@ -51,7 +51,7 @@ const getArrayValues = (array: string | any[], index: number) => {
     <article class="grid grid-cols-2 sm:grid sm:grid-cols-3 lg:grid lg:grid-cols-4 w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
         {CERTIFICATES.map(({ src, alt, href }) => (
             <a href={href} class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]">
-                <img src={src} alt={alt} width="200" height="200" class="w-full h-36 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[135px] " />
+                <img src={src} alt={alt} width="200" height="200" loading="lazy" class="w-full h-36 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[135px] " />
             </a>
         ))}
         
@@ -69,7 +69,7 @@ const getArrayValues = (array: string | any[], index: number) => {
                 <a href="#_" class="absolute top-0 right-0 m-4 text-white text-6xl rounded-full bg-gray-800 opacity-50 hover:opacity-100 focus:outline-none px-4 py-1">&times;</a>
                 <a href={prev.href} aria-label="izquierda" class="absolute rounded-full left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Left /></a>
                 <div class="m-2">
-                    <img src={src} alt={alt} class="w-[125vh] max-h-[90vh]" loading="lazy"/>
+                    <img src={src} alt={alt} class="w-[100vh] max-h-[90vh]" loading="lazy"/>
                 </div>
                 <a href={next.href} aria-label="derecha" class="absolute rounded-full right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Right /></a>
             </article>
