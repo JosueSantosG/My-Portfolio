@@ -3,6 +3,9 @@ import Angular from "./logos/Angular.astro";
 import NodeJS from "./logos/NodeJS.astro";
 import Tailwind from "./logos/Tailwind.astro";
 import Bootstrap from "./logos/Bootstrap.astro";
+import AstroLG from "./logos/AstroL.astro";
+import ImanArt from "./logos/ImanArt.astro";
+
 
 import DropIcon from "./icons/Drop.astro";
 import RobotIcon from "./icons/Robot.astro";
@@ -15,6 +18,7 @@ import SocketIO from "./logos/SocketIO.astro";
 
 const TAGS = {
   ANGULAR: { name: "Angular", class: "bg-[#914646] text-white", icon: Angular },
+  ASTROLG: { name: "Astro", class: "bg-[#a74914f5] text-white", icon: AstroLG },
   BOOTSTRAP: { name: "Bootstrap", class: "bg-[#664794] text-white", icon: Bootstrap },
   NODEJS: { name: "Node.js", class: "bg-[#024302] text-white", icon: NodeJS },
   TAILWIND: { name: "Tailwind CSS", class: "bg-[#172a5de3] text-white", icon: Tailwind },
@@ -46,6 +50,17 @@ const PROJECTS = [
   },
   /* Proyecto 3 */
   {
+    icon: ImanArt,
+    title: "imanArt",
+    description:
+      "LandingPage diseñada para una pequeña empresa especializada en la creación de imanes decorativos y personalizados. La página está orientada a mostrar los productos, destacar sus beneficios y facilitar el contacto con los clientes mediante un diseño atractivo y funcional.",
+    image: "/projects/proyecto3.webp",
+    link: "https://imanart.vercel.app/",
+    github: "https://github.com/JosueSantosG/imanArt",
+    tags: [TAGS.ASTROLG, TAGS.TAILWIND],
+  },
+  /* Proyecto 4 */
+  {
     icon: DropIcon,
     title: "JaapMan",
     description:
@@ -53,6 +68,7 @@ const PROJECTS = [
     image: "/projects/JaapMan.mp4",
     tags: [TAGS.ANGULAR, TAGS.NODEJS, TAGS.BOOTSTRAP],
   },
+  
   
 ];
 // Función para verificar si es una imagen o un video
