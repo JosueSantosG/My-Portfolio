@@ -1,93 +1,108 @@
 ---
-import Left from "./icons/Left.astro";
-import Right from "./icons/Right.astro";
-
 const CERTIFICATES = [
     {
-        src: "/certificates/AdvancedStyling.webp", alt: "Certificado 1",
-        href: "#C1", id: "C1",
+        src: "/certificates/AdvancedStyling.webp", 
+        alt: "Certificado 1",
+        href: "#C1", 
+        id: "C1",
+        width: 1650,
+        height: 1275
     },
     {
-        src: "/certificates/InteractivityJS.webp", alt: "Certificado 2",
-        href: "#C2", id: "C2",
+        src: "/certificates/InteractivityJS.webp", 
+        alt: "Certificado 2",
+        href: "#C2", 
+        id: "C2",
+        width: 1650,
+        height: 1275
     },
     {
-        src: "/certificates/IntrodGit.webp", alt: "Certificado 3",
-        href: "#C3", id: "C3",
+        src: "/certificates/IntrodGit.webp", 
+        alt: "Certificado 3",
+        href: "#C3", 
+        id: "C3",
+        width: 1582,
+        height: 1114
     },
     {
-        src: "/certificates/IntrodSegCiber.webp", alt: "Certificado 4",
-        href: "#C4", id: "C4",
+        src: "/certificates/IntrodSegCiber.webp", 
+        alt: "Certificado 4",
+        href: "#C4", 
+        id: "C4",
+        width: 1754,
+        height: 1240
     },
     {
-        src: "/certificates/IntroduccionPOO.webp", alt: "Certificado 5",
-        href: "#C5", id: "C5",
+        src: "/certificates/IntroduccionPOO.webp", 
+        alt: "Certificado 5",
+        href: "#C5", 
+        id: "C5",
+        width: 1650,
+        height: 1275
     },
     {
-        src: "/certificates/IntroductionCSS3.webp", alt: "Certificado 6",
-        href: "#C6", id: "C6",
+        src: "/certificates/IntroductionCSS3.webp", 
+        alt: "Certificado 6",
+        href: "#C6", 
+        id: "C6",
+        width: 1650,
+        height: 1275
     },
     {
-        src: "/certificates/IntroductionHTML5.webp", alt: "Certificado 7",
-        href: "#C7", id: "C7",
+        src: "/certificates/IntroductionHTML5.webp", 
+        alt: "Certificado 7",
+        href: "#C7", 
+        id: "C7",
+        width: 1650,
+        height: 1275
     },
     {
-        src: "/certificates/IOTNodeRED.webp", alt: "Certificado 8",
-        href: "#C8", id: "C8",
-    },
-    
-    
+        src: "/certificates/IOTNodeRED.webp", 
+        alt: "Certificado 8",
+        href: "#C8", 
+        id: "C8",
+        width: 1754,
+        height: 1240
+    }
 ];
 
-const getArrayValues = (array: string | any[], index: number) => {
-    const prev = index === 0 ? array.length - 1 : index - 1;
-    const next = index === array.length - 1 ? 0 : index + 1;
-    return [array[prev], array[next]];
-};
 
 ---
 
 <div class="flex items-center justify-center my-8 p-4">
-    <article class="grid grid-cols-2 sm:grid sm:grid-cols-3 lg:grid lg:grid-cols-4 w-[95%] gap-4 overflow-hidden m-auto px-0 py-10">
-        {CERTIFICATES.map(({ src, alt, href }) => (
-            <a href={href} class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]">
-                <img src={src} alt={alt} width="200" height="200" loading="lazy" class="w-full h-36 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[135px] " />
+    <article 
+        id="gallery"
+        class="grid grid-cols-2 sm:grid sm:grid-cols-3 lg:grid lg:grid-cols-4 w-[95%] gap-4 overflow-hidden m-auto px-0 py-10"
+    >
+        {CERTIFICATES.map(({ src, alt, width, height }) => (
+            <a 
+                href={src} 
+                class="hover:transition-transform hover:duration-[0.5s] hover:scale-[1.02]"
+
+                data-pswp-width={width}
+                data-pswp-height={height}
+                data-cropped="true"
+            >
+                <img 
+                    src={src} 
+                    alt={alt} 
+                    class="w-full h-36 shadow-md shadow-gray-500/50 dark:shadow-gray-50/50 object-cover rounded-lg md:w-[300px] md:h-[135px]" 
+                />
             </a>
         ))}
-        
     </article>
 </div>
-    
 
-{
-    
-    CERTIFICATES.map(({ src, alt, id }, index) => {
-        const [prev, next] = getArrayValues(CERTIFICATES, index);
-        return (
-            /* transition-transform duration-500 ease-out */
-            <article class="light-box flex justify-center items-center fixed top-0 left-0 w-full h-[100vh] bg-black bg-opacity-80 z-20 " id={id}>
-                <a href="#_" class="absolute top-0 right-0 m-4 text-white text-6xl rounded-full bg-gray-800 opacity-50 hover:opacity-100 focus:outline-none px-4 py-1">&times;</a>
-                <a href={prev.href} aria-label="izquierda" class="absolute rounded-full left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Left /></a>
-                <div class="m-2">
-                    <img src={src} alt={alt} class="w-[100vh] max-h-[90vh]" loading="lazy"/>
-                </div>
-                <a href={next.href} aria-label="derecha" class="absolute rounded-full right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-1 py-1 opacity-50 hover:opacity-100 focus:outline-none md:px-4 md:py-4 md:mx-2"><Right /></a>
-            </article>
-        );
-    })
-    
-}
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
 
-
-<style>
-
-    .light-box {
-        transform: scale(0);
-    }
-
-    .light-box:target{
-        transform: scale(1);
-    }
-    
-</style>
-
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    showHideAnimationType: "zoom",
+    secondaryZoomLevel: 1.2,
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>
